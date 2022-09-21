@@ -70,17 +70,15 @@ def F(U):
 U = np.zeros((4,n))
 U[:,0] = U0
 for i in range(1,n):
-        def CrankN(x):
-            return [x[0] - U[0,i-1] - (x[2] + F(U[:,i-1])[0])*dt/2,
-                    x[1] - U[1,i-1] - (x[3] + F(U[:,i-1])[1])*dt/2,
-                    x[2] - U[2,i-1] - (-x[0]/((x[0]**2 + x[1]**2)**(3/2)) + F(U[:,i-1])[2])*dt/2,
-                    x[3] - U[3,i-1] - (-x[1]/((x[0]**2 + x[1]**2)**(3/2)) + F(U[:,i-1])[3])*dt/2]
-        U[:,i] = fsolve(CrankN, [U[0,i-1], U[1,i-1], U[2,i-1], U[3,i-1]])
+    def CrankN(x):
+        return [x[0] - U[0,i-1] - (x[2] + F(U[:,i-1])[0])*dt/2,
+                x[1] - U[1,i-1] - (x[3] + F(U[:,i-1])[1])*dt/2,
+                x[2] - U[2,i-1] - (-x[0]/((x[0]**2 + x[1]**2)**(3/2)) + F(U[:,i-1])[2])*dt/2,
+                x[3] - U[3,i-1] - (-x[1]/((x[0]**2 + x[1]**2)**(3/2)) + F(U[:,i-1])[3])*dt/2]
+U[:,i] = fsolve(CrankN, [U[0,i-1], U[1,i-1], U[2,i-1], U[3,i-1]])
 
         
 print(U)
 plt.figure(3)
 plt.plot(np.transpose(U[0,:]),np.transpose(U[1,:]))
 plt.show()
-
-
