@@ -1,3 +1,22 @@
+Github de Sergio Cavia Fraile
+
+En la carpeta Sources se podrá encontrar el código de cada trabajo bajo el nombre Milestonei.py, siendo i el número de la entrega correspondiente.
+En la carpeta Doc se podrá encontrar el informe de cada trabajo bajo el nombre Milestonei.pdf, siendo i el número de la entrega correspondiente.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # MUSE Milestones
 ### [contents PDF](https://github.com/jahrWork/MUSE_orbits_S1/blob/master/doc/MUSE_weekly_milestones.pdf)
 
