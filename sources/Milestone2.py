@@ -1,4 +1,5 @@
 from numpy import  zeros, array, linspace
+from scipy.optimize import fsolve
 import matplotlib.pyplot as plt
 
 "Schemes"
@@ -23,7 +24,28 @@ def RK4(U, dt, t, F):
 
 def CN(U, dt, t, F):
 
+    nextstep = F(U, t)
+    def func_CN(x):
+        return [x[0] - U[0] - (x[2] + nextstep[0])*dt/2,
+                x[1] - U[1] - (x[3] + nextstep[1])*dt/2,
+                x[2] - U[2] - (-x[0]/((x[0]**2+x[1]**2)**(3/2)) + nextstep[2])*dt/2,
+                x[3] - U[3] - (-x[1]/((x[0]**2+x[1]**2)**(3/2)) + nextstep[3])*dt/2]
+    U = fsolve(func_CN, [U])
+    "Kepler metido dentro de la función, por lo que solo vale para resolver Kepler y no cualquier función"
     return U
+
+def EulerInv(U, dt, t, F):
+
+    nextstep = F(U, t)
+    def func_EI(x):
+        return [x[0] - U[0] - (x[2] + nextstep[0])*dt,
+                x[1] - U[1] - (x[3] + nextstep[1])*dt,
+                x[2] - U[2] - (-x[0]/((x[0]**2+x[1]**2)**(3/2)) + nextstep[2])*dt,
+                x[3] - U[3] - (-x[1]/((x[0]**2+x[1]**2)**(3/2)) + nextstep[3])*dt]
+    U = fsolve(func_EI, [U])
+    "Kepler metido dentro de la función, por lo que solo vale para resolver Kepler y no cualquier función"
+    return U
+
 
 
 "Function"
@@ -54,7 +76,7 @@ N = 200
 t = linspace(0, tf, N)
 U0 = array([1, 0, 0, 1])
 
-U =  Cauchy(Kepler, t, U0, RK4) 
+U =  Cauchy(Kepler, t, U0, Euler) 
 
 plt.plot(U[:,0] , U[:,1])
 plt.show()
