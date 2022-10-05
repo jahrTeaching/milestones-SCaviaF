@@ -1,5 +1,4 @@
-from numpy import  zeros, array, linspace
-from scipy.optimize import fsolve
+from numpy import array, linspace
 import matplotlib.pyplot as plt
 from ODEs.SchemesCode import Euler, RK4, CN, EulerInv
 from Functions.KeplerCode import Kepler
