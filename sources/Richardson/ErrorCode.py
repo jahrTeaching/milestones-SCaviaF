@@ -1,4 +1,4 @@
-from numpy import size, zeros, linspace
+from numpy import linspace, size, zeros
 from ODEs.CauchyCode import Cauchy
 from ODEs.SchemesCode import Euler, RK4, CN, EulerInv
 

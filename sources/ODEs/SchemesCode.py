@@ -24,15 +24,13 @@ def CN(U, dt, t, F):
 
     def func_CN(x):
         return x - U -(F(x,t+dt) + F(U, t))*dt/2
-    U = fsolve(func_CN, [U])
 
-    return U
+    return fsolve(func_CN, [U])
 
 def EulerInv(U, dt, t, F):
 
     def func_EI(x):
 
         return x - U - F(x,t+dt)*dt
-    U = fsolve(func_EI, [U])
 
-    return U
+    return fsolve(func_EI, [U])

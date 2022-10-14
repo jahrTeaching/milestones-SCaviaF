@@ -1,9 +1,9 @@
-from numpy import  zeros
+from numpy import zeros
 
 
 "Cauchy Problem"
 
-def Cauchy(F,t,U0,Scheme):
+def Cauchy(F, t, U0, Scheme):
 
     U = zeros((len(t),len(U0)))
     U[0,:] = U0
