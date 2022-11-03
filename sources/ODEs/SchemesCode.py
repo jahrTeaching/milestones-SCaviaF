@@ -6,6 +6,7 @@ def Euler(U, dt, t, F):
 
     return U + dt*F(U, t)
 
+
 def RK4(U, dt, t, F):
 
     k1 = F(U, t)
@@ -20,12 +21,14 @@ def RK4(U, dt, t, F):
 
     return U
 
+
 def CN(U, dt, t, F):
 
     def func_CN(x):
         return x - U -(F(x,t+dt) + F(U, t))*dt/2
 
     return fsolve(func_CN, [U])
+
 
 def EulerInv(U, dt, t, F):
 
@@ -34,3 +37,8 @@ def EulerInv(U, dt, t, F):
         return x - U - F(x,t+dt)*dt
 
     return fsolve(func_EI, [U])
+
+
+def LF(U2, U1, dt, t, F):
+
+    return U1 + 2*dt*F(U2,t)
