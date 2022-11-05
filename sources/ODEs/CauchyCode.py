@@ -1,5 +1,5 @@
 from numpy import zeros
-import ODEs.SchemesCode as Sch
+from ODEs.SchemesCode import Euler, RK4, CN, EulerInv, LF
 
 "Cauchy Problem"
 
@@ -9,7 +9,7 @@ def Cauchy(F, t, U0, Scheme):
     U[0,:] = U0
     dt = t[2] - t[1]
 
-    if Scheme == Sch.LF:
+    if Scheme == LF:
         U[1,:] = U[0,:] + dt*F(U[0,:], t[0])
 
         for n in range(1,len(t)-1):

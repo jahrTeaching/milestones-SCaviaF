@@ -32,5 +32,6 @@ def Conv(F, t, U0, Scheme,p):
         Nlog[i] = log10((2**i)*N)
 
         U = U2N
+        print(i)
 
     return [Elog, Nlog]
