@@ -26,3 +26,6 @@ def StabPoly(Scheme, w):
         r = sqrt(1)
 
     return r
+
+
+

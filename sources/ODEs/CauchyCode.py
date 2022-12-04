@@ -22,3 +22,6 @@ def Cauchy(F, t, U0, Scheme):
             U[n+1,:] = Scheme(U[n, :], t[n+1] - t[n], t[n],  F)
 
     return U
+
+
+
