@@ -20,6 +20,14 @@ def Cauchy(F, t, U0, Scheme):
     else:
         for n in range(len(t)-1):
             U[n+1,:] = Scheme(U[n, :], t[n+1] - t[n], t[n],  F)
+            if n == 20000:
+                print(n)
+            if n == 40000:
+                print(n)
+            if n == 60000:
+                print(n)
+            if n == 80000:
+                print(n)
 
     return U
 

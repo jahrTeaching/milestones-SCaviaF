@@ -1,4 +1,6 @@
 from scipy.optimize import fsolve
+from numpy import zeros, matmul, size
+from numpy.linalg import norm
 
 "Schemes"
 
